@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
-import Text from './Text'
-import theme from '../theme'
+import { StyleSheet } from 'react-native';
+import Text from './Text';
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   subHeading: {
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   colorPrimary: {
     color: theme.colors.primary,
   },
-})
+});
 
 const SubHeading = ({ color, style, ...props }) => {
   const textStyle = [
@@ -27,13 +27,13 @@ const SubHeading = ({ color, style, ...props }) => {
     color === 'textTertiary' && styles.colorTextTertiary,
     color === 'primary' && styles.colorPrimary,
     style,
-  ]
+  ];
 
   return (
     <Text style={textStyle} {...props}>
       {props.children}
     </Text>
-  )
-}
+  );
+};
 
-export default SubHeading
+export default SubHeading;

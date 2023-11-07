@@ -1,5 +1,5 @@
-import { View, StyleSheet } from 'react-native'
-import Numbers from './Numbers'
+import { View, StyleSheet } from 'react-native';
+import Numbers from './Numbers';
 const styles = StyleSheet.create({
   flexContainer: {
     flex: 1,
@@ -7,10 +7,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     paddingTop: 5,
   },
-})
+});
 
 const NumbersRow = ({ item }) => {
-  const { forksCount, stargazersCount, ratingAverage, reviewCount } = item
+  const { forksCount, stargazersCount, ratingAverage, reviewCount } = item;
   return (
     <View style={styles.flexContainer}>
       <Numbers number={stargazersCount} title={'Stars'} />
@@ -18,7 +18,7 @@ const NumbersRow = ({ item }) => {
       <Numbers number={reviewCount} title={'Reviews'} />
       <Numbers number={ratingAverage} title={'Rating'} />
     </View>
-  )
-}
+  );
+};
 
-export default NumbersRow
+export default NumbersRow;

@@ -1,5 +1,5 @@
-import { View, StyleSheet } from 'react-native'
-import Text from './Text'
+import { View, StyleSheet } from 'react-native';
+import Text from './Text';
 
 const styles = StyleSheet.create({
   flexContainer: {
@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
   flexItemTitle: {
     flexGrow: 1,
   },
-})
+});
 
 const Numbers = ({ number, title, style }) => {
   const formattedNumber =
-    number > 1000 ? Number.parseFloat(number / 1000).toFixed(1) + 'k' : number
+    number > 1000 ? Number.parseFloat(number / 1000).toFixed(1) + 'k' : number;
 
-  const numberStyle = [styles.flexContainer, style]
+  const numberStyle = [styles.flexContainer, style];
   return (
     <View style={numberStyle}>
       <View style={styles.flexItemNumber}>
@@ -30,7 +30,7 @@ const Numbers = ({ number, title, style }) => {
         <Text color={'textSecondary'}>{title}</Text>
       </View>
     </View>
-  )
-}
+  );
+};
 
-export default Numbers
+export default Numbers;

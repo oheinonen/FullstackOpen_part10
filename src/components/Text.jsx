@@ -1,6 +1,6 @@
-import { Text as NativeText, StyleSheet } from 'react-native'
+import { Text as NativeText, StyleSheet } from 'react-native';
 
-import theme from '../theme'
+import theme from '../theme';
 
 const styles = StyleSheet.create({
   text: {
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
-})
+});
 
 const Text = ({
   color = 'primary',
@@ -50,14 +50,14 @@ const Text = ({
     fontWeight === 'bold' && styles.fontWeightBold,
     backgroundColor === 'primary' && styles.primaryBackgroundColor,
     style,
-  ]
+  ];
 
   return (
     <NativeText style={textStyle} {...props}>
       {' '}
       {props.children}
     </NativeText>
-  )
-}
+  );
+};
 
-export default Text
+export default Text;
