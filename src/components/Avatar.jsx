@@ -1,4 +1,4 @@
-import { View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   avatar: {
@@ -10,16 +10,15 @@ const styles = StyleSheet.create({
     flexGrow: 0,
     paddingRight: 15,
   },
-
-});
+})
 
 const Avatar = ({ uri }) => {
   console.log(uri)
   return (
     <View style={styles.avatarContainer}>
-      <Image style={styles.avatar} source={{uri}} />
+      <Image style={styles.avatar} source={{ uri }} />
     </View>
-  );
-};
+  )
+}
 
-export default Avatar;
+export default Avatar

@@ -1,6 +1,6 @@
-import { Text as NativeText, StyleSheet } from 'react-native';
+import { Text as NativeText, StyleSheet } from 'react-native'
 
-import theme from '../theme';
+import theme from '../theme'
 
 const styles = StyleSheet.create({
   text: {
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     color: theme.colors.white,
   },
   primaryBackgroundColor: {
-    backgroundColor: theme.backgroundColors.blueBackgroundColor
+    backgroundColor: theme.backgroundColors.blueBackgroundColor,
   },
   fontSizeSubheading: {
     fontSize: theme.fontSizes.subheading,
@@ -30,9 +30,16 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
-});
+})
 
-const Text = ({ color='primary', fontSize=16, fontWeight='normal', style, backgroundColor=theme.colors.white, ...props }) => {
+const Text = ({
+  color = 'primary',
+  fontSize = 16,
+  fontWeight = 'normal',
+  style,
+  backgroundColor = theme.colors.white,
+  ...props
+}) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
@@ -43,9 +50,14 @@ const Text = ({ color='primary', fontSize=16, fontWeight='normal', style, backgr
     fontWeight === 'bold' && styles.fontWeightBold,
     backgroundColor === 'primary' && styles.primaryBackgroundColor,
     style,
-  ];
+  ]
 
-  return <NativeText style={textStyle} {...props}> {props.children}</NativeText>;
-};
+  return (
+    <NativeText style={textStyle} {...props}>
+      {' '}
+      {props.children}
+    </NativeText>
+  )
+}
 
-export default Text;
+export default Text
