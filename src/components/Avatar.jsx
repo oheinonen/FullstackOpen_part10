@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
 });
 
 const Avatar = ({ uri }) => {
-  console.log(uri);
   return (
     <View style={styles.avatarContainer}>
       <Image style={styles.avatar} source={{ uri }} />

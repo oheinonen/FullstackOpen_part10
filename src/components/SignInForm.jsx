@@ -3,7 +3,8 @@ import theme from '../theme';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 import { StyleSheet, Pressable, Text, View } from 'react-native';
-import { useSignIn } from '../hooks/userSignIn';
+import { useSignIn } from '../hooks/useSignIn';
+import { useNavigate } from 'react-router-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,15 +26,17 @@ const styles = StyleSheet.create({
 
 const SignInForm = () => {
   const [signIn] = useSignIn();
+  const navigate = useNavigate();
 
   const onSubmit = async (values) => {
     const { username, password } = values;
     try {
-      const { data } = await signIn({ username, password });
-      console.log(data);
+      await signIn({ username, password });
+      navigate('/');
     } catch (e) {
-      console.log(e);
+      console.error(e);
     }
+    return;
   };
 
   const validationSchema = yup.object().shape({
@@ -56,7 +59,7 @@ const SignInForm = () => {
             secureTextEntry
           />
           <Pressable onPress={handleSubmit} style={styles.buttonContainer}>
-            <Text style={styles.buttonText}>Sign in</Text>
+            <Text style={styles.buttonText}>Sign in </Text>
           </Pressable>
         </View>
       )}
