@@ -27,3 +27,12 @@ export const SIGN_IN = gql`
     }
   }
 `;
+
+export const CURRENT_USER = gql`
+  query {
+    me {
+      id
+      username
+    }
+  }
+`
