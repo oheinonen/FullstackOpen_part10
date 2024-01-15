@@ -20,7 +20,7 @@ const AppBar = () => {
     <View style={styles.container}>
       <ScrollView horizontal>
         <AppBarTab name={'Repositories'} to={'/'} />
-        {data.me ? (
+        {data?.me ? (
           <SignOutTab />
         ) : (
           <AppBarTab name={'Sign in'} to={'/signIn'} />

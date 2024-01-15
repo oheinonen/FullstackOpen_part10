@@ -14,13 +14,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const Numbers = ({ number, title, style }) => {
+const Numbers = ({ number, title, style, testID }) => {
   const formattedNumber =
     number > 1000 ? Number.parseFloat(number / 1000).toFixed(1) + 'k' : number;
 
   const numberStyle = [styles.flexContainer, style];
   return (
-    <View style={numberStyle}>
+    <View style={numberStyle} testID={testID}>
       <View style={styles.flexItemNumber}>
         <Text color={'textPrimary'} fontWeight={'bold'}>
           {formattedNumber}

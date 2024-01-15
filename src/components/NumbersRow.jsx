@@ -13,10 +13,14 @@ const NumbersRow = ({ item }) => {
   const { forksCount, stargazersCount, ratingAverage, reviewCount } = item;
   return (
     <View style={styles.flexContainer}>
-      <Numbers number={stargazersCount} title={'Stars'} />
-      <Numbers number={forksCount} title={'Forks'} />
-      <Numbers number={reviewCount} title={'Reviews'} />
-      <Numbers number={ratingAverage} title={'Rating'} />
+      <Numbers
+        number={stargazersCount}
+        testID="stargazersCount"
+        title={'Stars'}
+      />
+      <Numbers number={forksCount} testID="forksCount" title={'Forks'} />
+      <Numbers number={reviewCount} testID="reviewCount" title={'Reviews'} />
+      <Numbers number={ratingAverage} testID="ratingAverage" title={'Rating'} />
     </View>
   );
 };
