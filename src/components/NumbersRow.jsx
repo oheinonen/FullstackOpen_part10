@@ -2,7 +2,6 @@ import { View, StyleSheet } from 'react-native';
 import Numbers from './Numbers';
 const styles = StyleSheet.create({
   flexContainer: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     paddingTop: 5,
