@@ -34,8 +34,22 @@ export const GET_REPOSITORY = gql`
       reviewCount
       id
       url
-  }
-}`;
+      reviews {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+          }
+        }
+      }
+    }
+  }`;
 
 export const SIGN_IN = gql`
   mutation ($username: String!, $password: String!) {

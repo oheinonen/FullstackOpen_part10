@@ -28,6 +28,7 @@
     "@expo/webpack-config": "~19.0.1",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@types/react": "~18.2.79",
+    "date-fns": "^3.6.0",
     "dotenv": "^16.3.1",
     "expo": "~51.0.2",
     "expo-linking": "^6.3.1",

@@ -3,12 +3,12 @@ import { GET_REPOSITORY } from '../graphql/queries';
 
 const useRepositoryById = (id) => {
 
-  const { data: repository, error, loading } = useQuery(GET_REPOSITORY, {
+  const { data, error, loading } = useQuery(GET_REPOSITORY, {
     variables: { id },
     fetchPolicy: 'cache-and-network',
   });
 
-  return { repository, error, loading };
+  return { data, error, loading };
 };
 
 export default useRepositoryById;
