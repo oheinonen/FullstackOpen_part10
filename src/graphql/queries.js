@@ -58,6 +58,13 @@ export const SIGN_IN = gql`
     }
   }
 `;
+export const SIGN_UP = gql`
+  mutation ($username: String!, $password: String!) {
+    createUser(user: { username: $username, password: $password }) {
+      username
+    }
+  }
+`;
 
 export const CREATE_REVIEW = gql`
   mutation ($ownerName: String!, $repositoryName: String!, $rating: Int!, $text: String!) {
