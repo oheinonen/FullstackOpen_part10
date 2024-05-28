@@ -3,6 +3,8 @@ import RepositoryItem from './RepositoryItem';
 import theme from '../theme';
 import useRepositories from '../hooks/useRepositories';
 import { useNavigate } from 'react-router-native';
+import SortPicker from './SortPicker';
+import { useState } from 'react';
 
 const styles = StyleSheet.create({
   separator: {
@@ -14,8 +16,9 @@ const styles = StyleSheet.create({
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-export const RepositoryListContainer = ({ repositories }) => {
+export const RepositoryListContainer = ({ repositories, order, setOrder }) => {
   const navigate = useNavigate();
+
   const repositoryNodes = repositories
     ? repositories.edges.map((edge) => edge.node)
     : [];
@@ -33,11 +36,19 @@ export const RepositoryListContainer = ({ repositories }) => {
         </Pressable>
       )}
       keyExtractor={(item) => item.id.toString()}
+      ListHeaderComponent={<SortPicker order={order} setOrder={setOrder} />}
     />
   );
 };
 const RepositoryList = () => {
-  const { repositories, loading, error } = useRepositories();
+  const [order, setOrder] = useState('latest');
+  const orderBy = order === 'latest' ? 'CREATED_AT' : 'RATING_AVERAGE';
+  const orderDirection = order === 'ratingAsc' ? 'ASC' : 'DESC';
+
+  const { repositories, loading, error } = useRepositories(
+    orderBy,
+    orderDirection
+  );
   if (loading) {
     return <Text>loading...</Text>;
   }
@@ -46,7 +57,13 @@ const RepositoryList = () => {
     return <Text>error...</Text>;
   }
 
-  return <RepositoryListContainer repositories={repositories.repositories} />;
+  return (
+    <RepositoryListContainer
+      repositories={repositories.repositories}
+      order={order}
+      setOrder={setOrder}
+    />
+  );
 };
 
 export default RepositoryList;
