@@ -7,6 +7,7 @@ import SortPicker from './SortPicker';
 import { useState } from 'react';
 import SearchBar from './SearchBar';
 import { useDebounce } from 'use-debounce';
+import LoadingIndicator from './LoadingIndicator';
 
 const styles = StyleSheet.create({
   separator: {
@@ -74,7 +75,7 @@ const RepositoryList = () => {
     debouncedSearchQuery
   );
   if (loading) {
-    return <Text>loading...</Text>;
+    return <LoadingIndicator />;
   }
   if (error) {
     console.log(error);

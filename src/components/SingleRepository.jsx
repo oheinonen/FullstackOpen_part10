@@ -4,6 +4,7 @@ import { useParams } from 'react-router-native';
 import RepositoryItem from './RepositoryItem';
 import ReviewItem from './ReviewItem';
 import useRepositoryById from '../hooks/useRepository';
+import LoadingIndicator from './LoadingIndicator';
 
 const styles = StyleSheet.create({
   separator: {
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
 const SingleRepository = () => {
   const { id } = useParams();
   const { data, loading, error } = useRepositoryById(id);
-  if (loading) return <Text>loading repository...</Text>;
+  if (loading) return <LoadingIndicator />;
   if (error)
     return <Text>error happened when fetching single repository...</Text>;
 

@@ -2,6 +2,8 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import theme from '../theme';
 import ReviewItem from './ReviewItem';
 import useCurrentUser from '../hooks/useCurrentUser';
+import LoadingIndicator from './LoadingIndicator';
+
 const styles = StyleSheet.create({
   separator: {
     borderBottomWidth: 10,
@@ -13,7 +15,7 @@ const AccountReviews = () => {
   const includeReviews = true;
   const { data, loading, error } = useCurrentUser(includeReviews);
 
-  if (loading) return <Text>loading reviews...</Text>;
+  if (loading) return <LoadingIndicator />;
   if (error || !data.me)
     return <Text>error happened when fetching your reviews...</Text>;
   const { me } = data;
