@@ -6,7 +6,6 @@ const styles = StyleSheet.create({
   picker: {
     height: 80,
     color: theme.colors.textSecondary,
-    backgroundColor: theme.backgroundColors.lightBackgroundColor,
   },
   disabledPickerItem: {
     color: theme.colors.textSecondary,
