@@ -80,10 +80,24 @@ export const CREATE_REVIEW = gql`
 `;
 
 export const CURRENT_USER = gql`
-  query {
-    me {
+query getCurrentUser($includeReviews: Boolean = false) {
+  me {
       id
       username
+      reviews @include(if: $includeReviews) {
+        edges {
+          node {
+            id
+            text
+            rating
+            createdAt
+            user {
+              id
+              username
+            }
+          }
+        }
+      }
     }
   }
 `
